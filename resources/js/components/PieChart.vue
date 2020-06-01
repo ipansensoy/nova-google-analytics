@@ -34,10 +34,15 @@ export default {
                 }
             ]
         };
-
-        for (let category in this.data) {
+        let apiObj = this.data;
+        let output = apiObj.map(item => {
+            let obj = {};
+            obj[item.key2] = item.key1;
+            return obj;
+        });
+        for (let category in output) {
             chartData.labels.push(category);
-            chartData.datasets[0].data.push(this.data[category]);
+            chartData.datasets[0].data.push(output[category]);
         }
 
         this.renderChart(chartData, {
