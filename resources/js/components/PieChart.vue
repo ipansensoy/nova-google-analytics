@@ -36,8 +36,8 @@ export default {
         };
 
         for (let item in this.data) {
-            chartData.labels.push(item);
-            chartData.datasets[0].data.push(this.data[item]);
+            chartData.labels.push(item.hostname);
+            chartData.datasets[0].data.push(this.data[count]);
         }
 
         this.renderChart(chartData, {
