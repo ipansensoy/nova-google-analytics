@@ -22141,19 +22141,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ["data"],
     mounted: function mounted() {
         // reformat in the way the lib wants
-        var backgroundColor = ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"];
         var chartData = {
             labels: [],
-            datasets: []
+            datasets: [{
+                label: "Load Count",
+                backgroundColor: "#f87979",
+                data: []
+            }]
         };
 
         for (var i = 0; i < this.data.length; i++) {
-            chartData.labels.push(__WEBPACK_IMPORTED_MODULE_1_moment___default()(String(this.data[i].date)).format("LL"));
-            chartData.datasets.push({
-                label: this.data[i].name,
-                backgroundColor: backgroundColor[i],
-                data: this.data[i].count
-            });
+            chartData.labels.push(this.data[i].datname);
+            chartData.datasets[0].data.push(this.data[i].count);
         }
 
         this.renderChart(chartData, {
