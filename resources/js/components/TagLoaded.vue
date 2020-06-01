@@ -24,8 +24,16 @@ import LineChart from "./Chart.vue";
 export default {
     name: "LineChartContainer",
     components: { LineChart },
-    props: ["card"],
-
+    props: {
+        chartdata: {
+            type: Object,
+            default: null
+        },
+        options: {
+            type: Object,
+            default: null
+        }
+    },
     data: function() {
         return {
             chartdata: null,
