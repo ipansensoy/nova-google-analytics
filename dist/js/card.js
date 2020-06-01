@@ -38070,7 +38070,39 @@ webpackContext.id = 160;
 /* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("card", { staticClass: "px-4 py-4" }, [
+    _c("div", { staticClass: "mb-4" }, [
+      _c("h3", { staticClass: "mr-3 text-base text-80 font-bold" }, [
+        _vm._v("Tag Load Count")
+      ])
+    ]),
+    _vm._v(" "),
+    !_vm.pages
+      ? _c("div", { staticClass: "flex items-center" }, [
+          _c("p", { staticClass: "text-80 font-bold" }, [_vm._v("No Data")])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _vm.loaded
+          ? _c("line-chart", {
+              attrs: { chartdata: _vm.pages, options: _vm.options }
+            })
+          : _vm._e()
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

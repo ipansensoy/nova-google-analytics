@@ -9,12 +9,12 @@
         <div>
             <line-chart v-if="loaded" :chartdata="pages" :options="options" />
         </div>
-        <ul v-else class="most-visited-pages-list mb-4 mt-2 overflow-y-scroll">
+        <!-- <ul v-else class="most-visited-pages-list mb-4 mt-2 overflow-y-scroll">
             <li v-for="page in pages">
                 <a :href="`https://${page.hostname}${page.path}`" target="_blank">{{ page.name }}</a
                 >: {{ page.count }}
             </li>
-        </ul>
+        </ul> -->
     </card>
 </template>
 
