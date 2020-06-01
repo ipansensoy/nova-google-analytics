@@ -21,8 +21,7 @@ export default {
 
         for (let i = 0; i < this.data.length; i++) {
             chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
-            chartData.datasets.push({ label: this.data[i].name });
-
+            chartData.labels.push(this.data[i].name);
             chartData.datasets[0].data.push(this.data[i].count);
         }
 
