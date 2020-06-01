@@ -19,7 +19,8 @@ export default {
         };
 
         for (let i = 0; i < this.data.length; i++) {
-            chartData.labels.push(new Date(this.data[i].date).toDateString());
+            console.log(typeofthis.data[i].date);
+            chartData.labels.push(this.data[i].date);
             chartData.datasets[0].data.push(this.data[i].count);
         }
 
