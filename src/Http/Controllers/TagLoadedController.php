@@ -20,13 +20,13 @@ class TagLoadedController extends Controller
             'ga:users',
             [
                 'metrics' => 'ga:metric1',
-                'dimensions' => 'ga:hostname,ga:date',
+                'dimensions' => 'ga:pageTitle,ga:hostname,ga:pagePath',
                 'sort' => '-ga:metric1',
                 'max-results' => 10,
             ]
         );
 
-        $headers = ['hostname', 'date', 'count'];
+        $headers = ['name', 'hostname', 'path', 'count'];
 
         return array_map(
             function ($row) use ($headers) {
