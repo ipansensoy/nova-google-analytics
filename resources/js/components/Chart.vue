@@ -14,6 +14,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.chartdata);
         this.renderChart(this.chartdata, this.options);
     }
 };
