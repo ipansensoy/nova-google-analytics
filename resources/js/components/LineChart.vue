@@ -9,28 +9,30 @@ export default {
     mounted() {
         // reformat in the way the lib wants
         let chartData = {
-            labels: ["lorem ipsum"],
+            labels: ["One", "TWO", "THREE"],
             datasets: [
                 {
-                    label: "Load Count",
+                    label: "Data One",
                     backgroundColor: "#f87979",
-                    data: []
-                }
-            ],
-            labels: ["lorem dolor"],
-            datasets: [
+                    data: [1, 2]
+                },
                 {
-                    label: "Load Count",
-                    backgroundColor: "#f87239",
-                    data: []
+                    label: "Data two",
+                    backgroundColor: "#f87979",
+                    data: [3, 4]
+                },
+                {
+                    label: "Data three",
+                    backgroundColor: "#f87979",
+                    data: [5, 6]
                 }
             ]
         };
 
-        for (let i = 0; i < this.data.length; i++) {
-            chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
-            chartData.datasets[0].data.push(this.data[i].count);
-        }
+        // for (let i = 0; i < this.data.length; i++) {
+        //     chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
+        //     chartData.datasets[0].data.push(this.data[i].count);
+        // }
 
         this.renderChart(chartData, {
             responsive: true,
