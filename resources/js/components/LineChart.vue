@@ -1,5 +1,6 @@
 <script>
 import { Line } from "vue-chartjs";
+import moment from "moment";
 
 export default {
     extends: Line,
@@ -19,7 +20,7 @@ export default {
         };
 
         for (let i = 0; i < this.data.length; i++) {
-            chartData.labels.push(this.data[i].date);
+            chartData.labels.push(moment(String(this.data[i].date)).format("YYYYMMDD"));
             chartData.datasets[0].data.push(this.data[i].count);
         }
 
