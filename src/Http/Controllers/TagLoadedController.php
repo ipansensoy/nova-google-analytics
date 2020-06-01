@@ -26,7 +26,7 @@ class TagLoadedController extends Controller
             ]
         );
 
-        $headers = ['name', 'hostname', 'path', 'count', 'date'];
+        $headers = ['name', 'hostname', 'path', 'date', 'count'];
 
         return array_map(
             function ($row) use ($headers) {
