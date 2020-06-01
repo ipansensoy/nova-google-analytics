@@ -19,9 +19,9 @@ class TagLoadedController extends Controller
             Period::days(7),
             'ga:users',
             [
-                'metrics' => 'ga:TagLoadCount',
+                'metrics' => 'ga:metric1',
                 'dimensions' => 'ga:pageTitle,ga:hostname,ga:pagePath',
-                'sort' => '-ga:TagLoadCount',
+                'sort' => '-ga:metric1',
                 'max-results' => 10,
             ]
         );
