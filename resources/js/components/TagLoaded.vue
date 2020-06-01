@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import LineChart from "./LineChart";
+import PieChart from "./PieChart";
 export default {
     name: "App",
     props: ["card"],
     components: {
-        LineChart
+        PieChart
     },
     data() {
         return {

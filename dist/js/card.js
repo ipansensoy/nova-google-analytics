@@ -21223,8 +21223,8 @@ exports.push([module.i, "\n.most-visited-pages-list[data-v-c9aa9a38] {\n    heig
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LineChart__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LineChart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__LineChart__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PieChart__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PieChart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__PieChart__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -21244,7 +21244,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     name: "App",
     props: ["card"],
     components: {
-        LineChart: __WEBPACK_IMPORTED_MODULE_1__LineChart___default.a
+        PieChart: __WEBPACK_IMPORTED_MODULE_1__PieChart___default.a
     },
     data: function data() {
         return {
@@ -22101,7 +22101,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/LineChart.vue"
+Component.options.__file = "resources/js/components/PieChart.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -22110,9 +22110,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-25cf856f", Component.options)
+    hotAPI.createRecord("data-v-7f3d8bc6", Component.options)
   } else {
-    hotAPI.reload("data-v-25cf856f", Component.options)
+    hotAPI.reload("data-v-7f3d8bc6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -22129,30 +22129,28 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
-    name: "LineChart",
+    extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Pie */],
+    name: "PieChart",
     props: ["data"],
     mounted: function mounted() {
+        // color list below came from https://stackoverflow.com/a/45489530/52160
         // reformat in the way the lib wants
         var chartData = {
             labels: [],
             datasets: [{
-                label: "Load Count",
-                backgroundColor: "#f87979",
-                data: []
+                label: "Tag load count per hostname",
+                data: [],
+                backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"]
             }]
         };
 
-        for (var i = 0; i < this.data.length; i++) {
-            chartData.labels.push(this.data[i].datname);
-            chartData.datasets[0].data.push(this.data[i].count);
+        for (var hostname in this.data) {
+            chartData.labels.push(hostname);
+            chartData.datasets[0].data.push(this.data[hostname]);
         }
 
         this.renderChart(chartData, {
@@ -22173,8 +22171,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* unused harmony reexport Bar */
 /* unused harmony reexport HorizontalBar */
 /* unused harmony reexport Doughnut */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["e"]; });
-/* unused harmony reexport Pie */
+/* unused harmony reexport Line */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__BaseCharts__["f"]; });
 /* unused harmony reexport PolarArea */
 /* unused harmony reexport Radar */
 /* unused harmony reexport Bubble */
