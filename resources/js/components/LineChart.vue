@@ -8,30 +8,35 @@ export default {
     props: ["data"],
     mounted() {
         // reformat in the way the lib wants
+        let backgroundColor = [
+            "#0074D9",
+            "#FF4136",
+            "#2ECC40",
+            "#FF851B",
+            "#7FDBFF",
+            "#B10DC9",
+            "#FFDC00",
+            "#001f3f",
+            "#39CCCC",
+            "#01FF70",
+            "#85144b",
+            "#F012BE",
+            "#3D9970",
+            "#111111",
+            "#AAAAAA"
+        ];
         let chartData = {
             labels: [],
-            datasets: [
-                {
-                    label: "1Count",
-                    backgroundColor: "#f87979",
-                    data: [70, 100, 400, 180, 100, 300, 500]
-                },
-                {
-                    label: "2Count",
-                    backgroundColor: "#f83979",
-                    data: [10, 30, 700, 180, 100, 300, 500]
-                },
-                {
-                    label: "3Count",
-                    backgroundColor: "#f39719",
-                    data: [70, 100, 40, 180, 100, 300, 200]
-                }
-            ]
+            datasets: []
         };
 
         for (let i = 0; i < this.data.length; i++) {
             chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
-            //chartData.datasets[0].data.push(this.data[i].count);
+            chartData.datasets.push({
+                label: this.data[i].name,
+                backgroundColor: backgroundColor[i],
+                data: this.data[i].count
+            });
         }
 
         this.renderChart(chartData, {
