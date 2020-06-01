@@ -19,7 +19,7 @@ export default {
         };
 
         for (let i = 0; i < this.data.length; i++) {
-            chartData.labels.push(this.data[i].name);
+            chartData.labels.push(new Date(this.data[i].date).toDateString());
             chartData.datasets[0].data.push(this.data[i].count);
         }
 
