@@ -38907,9 +38907,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _vm.loaded
-        ? _c("LineChart", {
-            attrs: { data: _vm.loadCount, styles: _vm.styles }
-          })
+        ? _c("PieChart", { attrs: { data: _vm.loadCount, styles: _vm.styles } })
         : _vm._e()
     ],
     1

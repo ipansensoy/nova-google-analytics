@@ -3,7 +3,7 @@
         <div class="mb-4">
             <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
         </div>
-        <LineChart v-if="loaded" :data="loadCount" :styles="styles" />
+        <PieChart v-if="loaded" :data="loadCount" :styles="styles" />
     </card>
 </template>
 
