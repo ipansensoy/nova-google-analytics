@@ -22148,9 +22148,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }]
         };
 
-        for (var hostname in this.data) {
-            chartData.labels.push(hostname);
-            chartData.datasets[0].data.push(this.data[hostname]);
+        for (var category in this.data) {
+            chartData.labels.push(category);
+            chartData.datasets[0].data.push(this.data[category]);
         }
 
         this.renderChart(chartData, {
@@ -38898,15 +38898,15 @@ var render = function() {
     "card",
     { staticClass: "px-4 py-4" },
     [
+      _vm.loaded
+        ? _c("PieChart", { attrs: { data: _vm.loadCount, styles: _vm.styles } })
+        : _vm._e(),
+      _vm._v(" "),
       _c("div", { staticClass: "mb-4" }, [
         _c("h3", { staticClass: "mr-3 text-base text-80 font-bold" }, [
           _vm._v("Tag Load Count")
         ])
-      ]),
-      _vm._v(" "),
-      _vm.loaded
-        ? _c("PieChart", { attrs: { data: _vm.loadCount, styles: _vm.styles } })
-        : _vm._e()
+      ])
     ],
     1
   )
