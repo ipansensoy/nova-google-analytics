@@ -9,11 +9,19 @@ export default {
     mounted() {
         // reformat in the way the lib wants
         let chartData = {
-            labels: [],
+            labels: ["lorem ipsum"],
             datasets: [
                 {
                     label: "Load Count",
                     backgroundColor: "#f87979",
+                    data: []
+                }
+            ],
+            labels: ["lorem dolor"],
+            datasets: [
+                {
+                    label: "Load Count",
+                    backgroundColor: "#f87239",
                     data: []
                 }
             ]
@@ -21,7 +29,6 @@ export default {
 
         for (let i = 0; i < this.data.length; i++) {
             chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
-            chartData.labels.push(this.data[i].name);
             chartData.datasets[0].data.push(this.data[i].count);
         }
 
