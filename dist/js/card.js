@@ -21238,7 +21238,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -38904,9 +38903,7 @@ var render = function() {
       _c("div", { staticClass: "mb-4" }, [
         _c("h3", { staticClass: "mr-3 text-base text-80 font-bold" }, [
           _vm._v("Tag Load Count")
-        ]),
-        _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(_vm.loadCount))])
+        ])
       ]),
       _vm._v(" "),
       _vm.loaded
