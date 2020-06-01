@@ -3,34 +3,35 @@
         <div class="mb-4">
             <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
         </div>
-        <div v-if="!pages" class="flex items-center">
-            <p class="text-80 font-bold">No Data</p>
-        </div>
-        <ul v-else class="most-visited-pages-list mb-4 mt-2 overflow-y-scroll">
-            <li v-for="page in pages">
-                <a :href="`https://${page.hostname}${page.path}`" target="_blank">{{ page.name }}</a
-                >: {{ page.count }}
-            </li>
-        </ul>
+        <LineChart v-if="loaded" :data="loadCount" :styles="styles" />
     </card>
 </template>
 
 <script>
-export default {
-    props: ["card"],
+import LineChart from "./components/LineChart";
 
-    data: function() {
+export default {
+    name: "App",
+    props: ["card"],
+    components: {
+        LineChart
+    },
+    data() {
         return {
-            pages: []
+            loaded: false,
+            loadCount: null,
+            styles: {
+                width: "450px",
+                height: "400px",
+                position: "relative"
+            }
         };
     },
-
-    mounted() {
-        Nova.request()
-            .get("/nova-vendor/nova-google-analytics/tag-loaded")
-            .then(response => {
-                this.pages = response.data;
-            });
+    async created() {
+        let resp = await fetch("/nova-vendor/nova-google-analytics/tag-loaded");
+        let data = await resp.json();
+        this.loadCount = data;
+        this.loaded = true;
     }
 };
 </script>
