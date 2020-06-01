@@ -28,9 +28,12 @@ class TagLoadedController extends Controller
 
         $headers = ['hostname', 'count'];
 
-        return (
+        return array_map(
+            function ($row) {
+                return $row;
+            },
             $analyticsData->rows ?? []
-
         );
+
     }
 }
