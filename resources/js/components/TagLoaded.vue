@@ -20,7 +20,6 @@
 
 <script>
 import LineChart from "./Chart.vue";
-
 export default {
     props: ["card"],
     components: { LineChart },
