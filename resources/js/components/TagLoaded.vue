@@ -4,7 +4,7 @@
             <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
         </div>
         <div class="container">
-            <line-chart v-if="loaded" :chartdata="pages" :options="options" />
+            <line-chart v-if="loaded" :chartdata="chartdata" :options="options" />
         </div>
         <div v-if="!pages" class="flex items-center">
             <p class="text-80 font-bold">No Data</p>
