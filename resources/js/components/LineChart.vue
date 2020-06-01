@@ -9,7 +9,7 @@ export default {
     mounted() {
         // reformat in the way the lib wants
         let chartData = {
-            labels: ["One", "TWO", "THREE"],
+            labels: [],
             datasets: [
                 {
                     label: "Data One",
@@ -29,10 +29,10 @@ export default {
             ]
         };
 
-        // for (let i = 0; i < this.data.length; i++) {
-        //     chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
-        //     chartData.datasets[0].data.push(this.data[i].count);
-        // }
+        for (let i = 0; i < this.data.length; i++) {
+            chartData.labels.push(moment(String(this.data[i].date)).format("LL"));
+            chartData.datasets[i].data.push(this.data[i].count);
+        }
 
         this.renderChart(chartData, {
             responsive: true,
