@@ -33,13 +33,15 @@ export default {
         };
     },
 
-    mounted() {
-        Nova.request()
-            .get("/nova-vendor/nova-google-analytics/tag-loaded")
-            .then(response => {
-                this.chartdata = response.data;
-                this.loaded = true;
-            });
+    async mounted() {
+        this.loaded = false;
+        try {
+            const { chartList } = await Nova.request().get("/nova-vendor/nova-google-analytics/tag-loaded");
+            this.chartdata = chartList;
+            this.loaded = true;
+        } catch (e) {
+            console.error(e);
+        }
     }
 };
 </script>
