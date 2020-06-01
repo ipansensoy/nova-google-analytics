@@ -1,22 +1,8 @@
 <template>
-    <card class="px-4 py-4">
-        <div class="mb-4">
-            <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
-        </div>
-        <div v-if="!pages" class="flex items-center">
-            <p class="text-80 font-bold">No Data</p>
-        </div>
-        <div class="small">
-            <line-chart :chart-data="datacollection"></line-chart>
-            <button @click="fillData()">Randomize</button>
-        </div>
-        <ul v-else class="most-visited-pages-list mb-4 mt-2 overflow-y-scroll">
-            <li v-for="page in pages">
-                <a :href="`https://${page.hostname}${page.path}`" target="_blank">{{ page.name }}</a
-                >: {{ page.count }}
-            </li>
-        </ul>
-    </card>
+    <div class="small">
+        <line-chart :chart-data="datacollection"></line-chart>
+        <button @click="fillData()">Randomize</button>
+    </div>
 </template>
 
 <script>
