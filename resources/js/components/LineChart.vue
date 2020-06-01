@@ -20,7 +20,7 @@ export default {
 
         for (let i = 0; i < this.data.length; i++) {
             chartData.labels.push(this.data[i].date);
-            chartData.datasets[0].data.push(this.data[i].views);
+            chartData.datasets[0].data.push(this.data[i].count);
         }
 
         this.renderChart(chartData, {
