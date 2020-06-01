@@ -2,6 +2,7 @@
     <card class="px-4 py-4">
         <div class="mb-4">
             <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
+            <div>{{ loadCount }}</div>
         </div>
         <PieChart v-if="loaded" :data="loadCount" :styles="styles" />
     </card>
