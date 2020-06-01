@@ -9,11 +9,11 @@ export default {
         // color list below came from https://stackoverflow.com/a/45489530/52160
         // reformat in the way the lib wants
         let chartData = {
-            labels: ["lorem", "dennis", "wataka"],
+            labels: [],
             datasets: [
                 {
                     label: "Tag load count per hostname",
-                    data: [1, 2, 3],
+                    data: [],
                     backgroundColor: [
                         "#0074D9",
                         "#FF4136",
@@ -34,6 +34,11 @@ export default {
                 }
             ]
         };
+
+        for (let hostname in this.data) {
+            chartData.labels.push(hostname);
+            chartData.datasets[0].data.push(this.data[hostname]);
+        }
 
         this.renderChart(chartData, {
             responsive: true,
