@@ -17,8 +17,10 @@
     },
     "dependencies": {
         "animated-scroll-to": "^1.2.2",
+        "apexcharts": "^3.19.2",
         "chart.js": "^2.9.3",
         "vue": "^2.5.0",
+        "vue-apexcharts": "^1.5.3",
         "vue-chartjs": "^3.5.0"
     }
 }
