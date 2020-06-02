@@ -1329,7 +1329,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 300px;\n}\n", ""]);
+exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 200px;\n}\n", ""]);
 
 // exports
 
