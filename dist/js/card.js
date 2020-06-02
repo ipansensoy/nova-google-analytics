@@ -1353,6 +1353,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "App",
@@ -2211,6 +2212,8 @@ var render = function() {
     { staticClass: "px-4 py-4 pie-char-panel" },
     [
       _c("h2", [_vm._v("Tag load count this week")]),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _vm.loaded
         ? _c("apexchart", {
