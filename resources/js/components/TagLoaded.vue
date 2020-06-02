@@ -1,5 +1,5 @@
 <template>
-    <card class="px-4 py-4">
+    <card class="px-4 py-4 pie-char-panel">
         <PieChart v-if="loaded" :data="loadCount" :styles="styles" />
         <div class="mb-4">
             <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.most-visited-pages-list {
-    height: 4.6rem;
+.pie-char-panel {
+    height: 5.6rem;
 }
 </style>

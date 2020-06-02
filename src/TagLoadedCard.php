@@ -12,7 +12,6 @@ class TagLoadedCard extends Card
      * @var string
      */
     public $width = '1/2';
-    public $height = '400px';
 
     /**
      * Get the component name for the element.

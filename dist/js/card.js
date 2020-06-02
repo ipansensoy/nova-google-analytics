@@ -21210,7 +21210,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.most-visited-pages-list[data-v-c9aa9a38] {\n    height: 4.6rem;\n}\n", ""]);
+exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 5.6rem;\n}\n", ""]);
 
 // exports
 
@@ -38901,7 +38901,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "card",
-    { staticClass: "px-4 py-4" },
+    { staticClass: "px-4 py-4 pie-char-panel" },
     [
       _vm.loaded
         ? _c("PieChart", { attrs: { data: _vm.loadCount, styles: _vm.styles } })
