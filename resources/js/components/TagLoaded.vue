@@ -33,10 +33,10 @@ export default {
 
         this.catSeries = [];
 
-        for (let cat in countByHost) {
-            console.log(cat);
-            this.catOptions.labels.push(cat);
-            this.catSeries.push(countByHost[cat]);
+        for (let i = 0; i < countByHost.length; i++) {
+            console.log(countByHost[i]);
+            this.catOptions.labels.push(countByHost[i]);
+            this.catSeries.push(countByHost[i]);
         }
         this.loaded = true;
     }
