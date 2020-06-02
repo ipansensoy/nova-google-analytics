@@ -22,7 +22,7 @@ class TagLoadedController extends Controller
             [
                 'metrics' => 'ga:metric1',
                 'dimensions' => 'ga:hostname',
-                'sort' => '-ga:pageviews',
+                'sort' => '-ga:metric1',
                 'max-results' => 10,
             ]
         );

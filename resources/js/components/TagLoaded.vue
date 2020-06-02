@@ -33,7 +33,7 @@ export default {
         let data = await resp.json();
         this.sampleData = data.map(item => {
             let obj = {};
-            obj[item.key2] = item.key1;
+            obj[item.hostname] = item.count;
             return obj;
         });
         this.loadCount = data;
