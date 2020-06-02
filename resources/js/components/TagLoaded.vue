@@ -9,9 +9,6 @@
 export default {
     name: "App",
     props: ["card"],
-    components: {
-        PieChart
-    },
     data() {
         return {
             loaded: false,

@@ -1357,9 +1357,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "App",
     props: ["card"],
-    components: {
-        PieChart: PieChart
-    },
     data: function data() {
         return {
             loaded: false,
