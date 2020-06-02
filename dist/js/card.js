@@ -2210,7 +2210,7 @@ var render = function() {
     "card",
     { staticClass: "px-4 py-4 pie-char-panel" },
     [
-      _c("h2", [_vm._v("Tag Load Count by Site")]),
+      _c("h2", [_vm._v("Tag load count this week")]),
       _vm._v(" "),
       _vm.loaded
         ? _c("apexchart", {

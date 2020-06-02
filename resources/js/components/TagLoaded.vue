@@ -1,6 +1,6 @@
 <template>
     <card class="px-4 py-4 pie-char-panel">
-        <h2>Tag Load Count by Site</h2>
+        <h2>Tag load count this week</h2>
         <apexchart v-if="loaded" width="500" type="pie" :options="catOptions" :series="catSeries"></apexchart>
     </card>
 </template>
