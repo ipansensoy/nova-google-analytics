@@ -1,7 +1,7 @@
 <template>
     <card class="px-4 py-4 pie-char-panel">
-        <h2>Views by Category</h2>
-        <apexchart v-if="loaded" width="400" type="pie" :options="catOptions" :series="catSeries"></apexchart>
+        <h2>Tag Load Count by Site</h2>
+        <apexchart v-if="loaded" width="600" type="pie" :options="catOptions" :series="catSeries"></apexchart>
     </card>
 </template>
 
@@ -44,6 +44,6 @@ export default {
 
 <style scoped>
 .pie-char-panel {
-    height: 400px;
+    height: 200px;
 }
 </style>

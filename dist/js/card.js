@@ -1329,7 +1329,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 400px;\n}\n", ""]);
+exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 300px;\n}\n", ""]);
 
 // exports
 
@@ -2210,12 +2210,12 @@ var render = function() {
     "card",
     { staticClass: "px-4 py-4 pie-char-panel" },
     [
-      _c("h2", [_vm._v("Views by Category")]),
+      _c("h2", [_vm._v("Tag Load Count by Site")]),
       _vm._v(" "),
       _vm.loaded
         ? _c("apexchart", {
             attrs: {
-              width: "400",
+              width: "600",
               type: "pie",
               options: _vm.catOptions,
               series: _vm.catSeries
