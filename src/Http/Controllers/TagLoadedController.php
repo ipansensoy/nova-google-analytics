@@ -15,13 +15,14 @@ class TagLoadedController extends Controller
 
     private function tagLoaded()
     {
+
         $analyticsData = app(Analytics::class)->performQuery(
             Period::days(7),
             'ga:users',
             [
                 'metrics' => 'ga:metric1',
                 'dimensions' => 'ga:hostname',
-                'sort' => '-ga:metric1',
+                'sort' => '-ga:pageviews',
                 'max-results' => 10,
             ]
         );
@@ -29,8 +30,8 @@ class TagLoadedController extends Controller
         $headers = ['hostname', 'count'];
 
         return array_map(
-            function ($row) {
-                return $row;
+            function ($row) use ($headers) {
+                return array_combine($headers, $row);
             },
             $analyticsData->rows ?? []
         );
