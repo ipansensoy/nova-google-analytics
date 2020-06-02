@@ -32,7 +32,6 @@ export default {
         };
 
         this.catSeries = [];
-        console.log(result);
         for (let cat in result) {
             console.log(cat);
             this.catOptions.labels.push(cat);

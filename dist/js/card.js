@@ -1394,7 +1394,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             };
 
                             this.catSeries = [];
-                            console.log(result);
                             for (cat in result) {
                                 console.log(cat);
                                 this.catOptions.labels.push(cat);
@@ -1402,7 +1401,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             }
                             this.loaded = true;
 
-                        case 13:
+                        case 12:
                         case "end":
                             return _context.stop();
                     }
