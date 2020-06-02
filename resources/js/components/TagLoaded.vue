@@ -35,8 +35,8 @@ export default {
 
         for (let i = 0; i < countByHost.length; i++) {
             console.log(countByHost[i]);
-            this.catOptions.labels.push(countByHost[i]);
-            this.catSeries.push(countByHost[i]);
+            this.catOptions.labels.push(countByHost[i]["hostname"]);
+            this.catSeries.push(countByHost[i]["count"]);
         }
         this.loaded = true;
     }
