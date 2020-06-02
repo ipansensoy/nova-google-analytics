@@ -1,9 +1,7 @@
 <template>
     <card class="px-4 py-4 pie-char-panel">
+        <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
         <PieChart v-if="loaded" :data="loadCount" :styles="styles" />
-        <div class="mb-4">
-            <h3 class="mr-3 text-base text-80 font-bold">Tag Load Count</h3>
-        </div>
     </card>
 </template>
 
@@ -37,6 +35,6 @@ export default {
 
 <style scoped>
 .pie-char-panel {
-    height: 5.6rem;
+    height: 400px;
 }
 </style>

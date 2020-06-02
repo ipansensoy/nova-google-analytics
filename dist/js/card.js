@@ -21210,7 +21210,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 5.6rem;\n}\n", ""]);
+exports.push([module.i, "\n.pie-char-panel[data-v-c9aa9a38] {\n    height: 400px;\n}\n", ""]);
 
 // exports
 
@@ -21229,8 +21229,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-//
-//
 //
 //
 //
@@ -38903,15 +38901,13 @@ var render = function() {
     "card",
     { staticClass: "px-4 py-4 pie-char-panel" },
     [
+      _c("h3", { staticClass: "mr-3 text-base text-80 font-bold" }, [
+        _vm._v("Tag Load Count")
+      ]),
+      _vm._v(" "),
       _vm.loaded
         ? _c("PieChart", { attrs: { data: _vm.loadCount, styles: _vm.styles } })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "mb-4" }, [
-        _c("h3", { staticClass: "mr-3 text-base text-80 font-bold" }, [
-          _vm._v("Tag Load Count")
-        ])
-      ])
+        : _vm._e()
     ],
     1
   )
