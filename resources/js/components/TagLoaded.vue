@@ -44,6 +44,6 @@ export default {
 
 <style scoped>
 .pie-char-panel {
-    height: 200px;
+    height: 400px;
 }
 </style>
