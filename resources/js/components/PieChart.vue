@@ -44,7 +44,7 @@ export default {
             chartData.labels.push(category);
             chartData.datasets[0].data.push(output[category]);
         }
-        this.console.log(chartData);
+        console.log(chartData);
         this.renderChart(chartData, {
             responsive: true,
             maintainAspectRatio: false
