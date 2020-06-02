@@ -1389,6 +1389,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 return obj;
                             });
 
+                            console.log(countByHost);
                             this.catOptions = {
                                 labels: []
                             };
@@ -1402,7 +1403,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             }
                             this.loaded = true;
 
-                        case 11:
+                        case 12:
                         case "end":
                             return _context.stop();
                     }

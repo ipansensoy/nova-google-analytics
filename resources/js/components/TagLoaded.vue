@@ -26,6 +26,7 @@ export default {
             obj[item.hostname] = parseInt(item.count);
             return obj;
         });
+        console.log(countByHost);
         this.catOptions = {
             labels: []
         };
