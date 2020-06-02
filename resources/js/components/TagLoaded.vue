@@ -21,22 +21,21 @@ export default {
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/tag-loaded");
         let data = await resp.json();
-        let countByHost = data.map(item => {
-            let obj = {};
-            obj[item.hostname] = parseInt(item.count);
-            return obj;
-        });
-        console.log(countByHost);
+
+        let result = {};
+        for (var i = 0; i < data.length; i++) {
+            result[data[i].hostname] = parseInt(data[i].count);
+        }
         this.catOptions = {
             labels: []
         };
 
         this.catSeries = [];
-
-        for (let i = 0; i < countByHost.length; i++) {
-            console.log(countByHost[i]);
-            this.catOptions.labels.push(countByHost[i]["hostname"]);
-            this.catSeries.push(countByHost[i]["count"]);
+        console.log(result);
+        for (let cat in result) {
+            console.log(cat);
+            this.catOptions.labels.push(cat);
+            this.catSeries.push(countByHost[cat]);
         }
         this.loaded = true;
     }
