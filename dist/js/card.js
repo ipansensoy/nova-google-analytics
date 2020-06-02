@@ -22150,7 +22150,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var apiObj = this.data;
         var output = apiObj.map(function (item) {
             var obj = {};
-            obj[item.hostname] = item.count;
+            obj[item.hostname] = parseInt(item.count);
             return obj;
         });
         for (var category in output) {

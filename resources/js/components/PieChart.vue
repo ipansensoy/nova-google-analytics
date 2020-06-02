@@ -37,7 +37,7 @@ export default {
         let apiObj = this.data;
         let output = apiObj.map(item => {
             let obj = {};
-            obj[item.hostname] = item.count;
+            obj[item.hostname] = parseInt(item.count);
             return obj;
         });
         for (let category in output) {
