@@ -35,7 +35,7 @@ export default {
         for (let cat in result) {
             console.log(cat);
             this.catOptions.labels.push(cat);
-            this.catSeries.push(countByHost[cat]);
+            this.catSeries.push(result[cat]);
         }
         this.loaded = true;
     }

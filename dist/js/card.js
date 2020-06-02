@@ -1397,7 +1397,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                             for (cat in result) {
                                 console.log(cat);
                                 this.catOptions.labels.push(cat);
-                                this.catSeries.push(countByHost[cat]);
+                                this.catSeries.push(result[cat]);
                             }
                             this.loaded = true;
 
