@@ -2215,7 +2215,7 @@ var render = function() {
       _vm.loaded
         ? _c("apexchart", {
             attrs: {
-              width: "600",
+              width: "400",
               type: "pie",
               options: _vm.catOptions,
               series: _vm.catSeries
