@@ -17,7 +17,7 @@ class TagLoadedController extends Controller
     {
 
         $analyticsData = app(Analytics::class)->performQuery(
-            Period::days(7),
+            Period::days(30),
             'ga:users',
             [
                 'metrics' => 'ga:metric1,ga:metric2',

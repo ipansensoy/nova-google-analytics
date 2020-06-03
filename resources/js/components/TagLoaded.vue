@@ -1,7 +1,5 @@
 <template>
     <card class="px-4 py-4 bar-char-panel">
-        <h2>Tag load count this week</h2>
-        <br />
         <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
@@ -33,7 +31,7 @@ export default {
                 width: [0, 4]
             },
             title: {
-                text: "Traffic Sources"
+                text: "Tag and Experience Load per month"
             },
             dataLabels: {
                 enabled: true,
@@ -81,6 +79,6 @@ export default {
 
 <style scoped>
 .bar-char-panel {
-    height: 400px;
+    height: 600px;
 }
 </style>
