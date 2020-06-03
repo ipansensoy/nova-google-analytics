@@ -2390,7 +2390,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                     switch (_context.prev = _context.next) {
                         case 0:
                             _context.next = 2;
-                            return Nova.request().get("/nova-vendor/nova-google-analytics/media-type-loaded");
+                            return fetch("/nova-vendor/nova-google-analytics/media-type-loaded");
 
                         case 2:
                             resp = _context.sent;
