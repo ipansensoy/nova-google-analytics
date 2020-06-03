@@ -20,7 +20,6 @@ export default {
         let data = await resp.json();
         this.chartOptions = {
             chart: {
-                type: "bar",
                 height: 350,
                 stacked: true,
                 toolbar: {
