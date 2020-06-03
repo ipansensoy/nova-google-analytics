@@ -20,6 +20,6 @@ class MediaTypeLoadedCard extends Card
      */
     public function component()
     {
-        return 'mediatype-loaded';
+        return 'media-type-loaded';
     }
 }
