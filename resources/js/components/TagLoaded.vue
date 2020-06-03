@@ -71,7 +71,8 @@ export default {
         ];
         for (let i = 0; i < data.length; i++) {
             this.chartOptions.xaxis.categories.push(data[i].hostname);
-            this.chartSeries[0].data.push(parseInt(data[i].count));
+            this.chartSeries[0].data.push(parseInt(data[i].tcount));
+            this.chartSeries[1].data.push(parseInt(data[i].ecount));
         }
         this.loaded = true;
     }
