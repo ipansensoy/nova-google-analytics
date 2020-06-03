@@ -2436,7 +2436,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 data: []
                             }];
                             for (i = 0; i < data.length; i++) {
-                                this.chartOptions.labels.push(data[i].hostname);
+                                this.chartOptions.xaxis.categories.push(data[i].hostname);
                                 this.chartSeries[0].data.push(parseInt(data[i].banner_count));
                                 this.chartSeries[1].data.push(parseInt(data[i].video_count));
                             }
