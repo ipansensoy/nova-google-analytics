@@ -1,5 +1,5 @@
 <template>
-    <card class="px-4 py-4 bar-char-panel">
+    <card class="px-4 py-4 media-tye-chart-panel">
         <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
@@ -18,6 +18,7 @@ export default {
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/mediatype-loaded");
         let data = await resp.json();
+        console.log(data);
         // let results = {};
         // for (var i = 0; i < data.length; i++) {
         //     results[data[i].hostname] = parseInt(data[i].count);
@@ -67,18 +68,14 @@ export default {
                 data: []
             }
         ];
-        for (let i = 0; i < data.length; i++) {
-            this.chartOptions.labels.push(data[i].hostname);
-            this.chartSeries[0].data.push(parseInt(data[i].tcount));
-            this.chartSeries[1].data.push(parseInt(data[i].ecount));
-        }
+
         this.loaded = true;
     }
 };
 </script>
 
 <style scoped>
-.bar-char-panel {
+.media-tye-chart-panel {
     height: 400px;
 }
 </style>

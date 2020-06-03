@@ -1,5 +1,5 @@
 <template>
-    <card class="px-4 py-4 bar-char-panel">
+    <card class="px-4 py-4 tag-exp-chart-panel">
         <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style scoped>
-.bar-char-panel {
+.tag-exp-chart-panel {
     height: 400px;
 }
 </style>
