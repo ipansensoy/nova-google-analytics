@@ -42,7 +42,7 @@ export default {
         this.catSeries = [];
         for (let result in results) {
             this.chartOptions.labels.push(result);
-            this.chartOptions.xaxis.categories.push(result[0]);
+            this.chartOptions.xaxis.categories.push(results[0]);
             this.chartSeries.push(results[result]);
         }
         this.loaded = true;
