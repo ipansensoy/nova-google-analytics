@@ -23,7 +23,7 @@ export default {
 
         let results = {};
         for (var i = 0; i < data.length; i++) {
-            result[data[i].hostname] = parseInt(data[i].count);
+            results[data[i].hostname] = parseInt(data[i].count);
         }
         this.chartOptions = {
             plotOptions: {
@@ -42,7 +42,7 @@ export default {
         this.catSeries = [];
         for (let result in results) {
             this.chartOptions.labels.push(result);
-            this.chartOptions.xaxis.categories.push(results[0]);
+            this.chartOptions.xaxis.categories.push(result[0]);
             this.chartSeries.push(results[result]);
         }
         this.loaded = true;
