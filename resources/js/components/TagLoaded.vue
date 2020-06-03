@@ -2,7 +2,7 @@
     <card class="px-4 py-4 pie-char-panel">
         <h2>Tag load count this week</h2>
         <br />
-        <apexchart v-if="loaded" width="500" type="pie" :options="catOptions" :series="catSeries"></apexchart>
+        <apexchart v-if="loaded" width="500" type="bar" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
 
@@ -13,29 +13,37 @@ export default {
     data() {
         return {
             loaded: false,
-            catOptions: null,
-            catSeries: null,
-            visitorOptions: null,
-            visitorSeries: null
+            chartOptions: null,
+            chartSeries: null
         };
     },
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/tag-loaded");
         let data = await resp.json();
 
-        let result = {};
+        let results = {};
         for (var i = 0; i < data.length; i++) {
             result[data[i].hostname] = parseInt(data[i].count);
         }
-        this.catOptions = {
+        this.chartOptions = {
+            plotOptions: {
+                bar: {
+                    horizontal: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                categories: []
+            },
             labels: []
         };
-
         this.catSeries = [];
-        for (let cat in result) {
-            console.log(cat);
-            this.catOptions.labels.push(cat);
-            this.catSeries.push(result[cat]);
+        for (let result in results) {
+            this.chartOptions.labels.push(result);
+            this.chartOptions.xaxis.categories.push(result[0]);
+            this.chartSeries.push(results[result]);
         }
         this.loaded = true;
     }
