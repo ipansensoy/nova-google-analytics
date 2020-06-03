@@ -16,7 +16,7 @@ export default {
         };
     },
     async created() {
-        let resp = await fetch("/nova-vendor/nova-google-analytics/tag-loaded");
+        let resp = await Nova.request().get("/nova-vendor/nova-google-analytics/tag-loaded");
         let data = await resp.json();
         // let results = {};
         // for (var i = 0; i < data.length; i++) {
