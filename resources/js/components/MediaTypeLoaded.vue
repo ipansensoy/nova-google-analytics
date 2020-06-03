@@ -1,7 +1,6 @@
 <template>
-    <card class="px-4 py-4 media-tye-chart-panel">
-        <p>{{ chartSeries }}</p>
-        <!-- <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart> -->
+    <card class="px-4 py-4 media-type-chart-panel">
+        <apexchart v-if="loaded" height="350" type="bar" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
 
@@ -19,52 +18,52 @@ export default {
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/media-type-loaded");
         let data = await resp.json();
-        // let results = {};
-        // for (var i = 0; i < data.length; i++) {
-        //     results[data[i].hostname] = parseInt(data[i].count);
-        // }
         this.chartOptions = {
             chart: {
-                height: 450,
-                type: "line"
-            },
-            stroke: {
-                width: [0, 4]
+                type: "bar",
+                height: 350,
+                stacked: true,
+                toolbar: {
+                    show: true
+                }
             },
             title: {
-                text: "Tag and Experience Load this month"
+                text: "Media type loaded on site this month"
             },
-            dataLabels: {
-                enabled: true,
-                enabledOnSeries: [1]
+
+            plotOptions: {
+                bar: {
+                    horizontal: false
+                }
             },
             xaxis: {
-                type: "hostname"
+                categories: []
             },
-            yaxis: [
-                {
-                    title: {
-                        text: "Tag Load Count"
-                    }
-                },
-                {
-                    opposite: true,
-                    title: {
-                        text: "Experience Load Count"
-                    }
-                }
-            ],
-            labels: []
+            legend: {
+                position: "right",
+                offsetY: 40
+            },
+            fill: {
+                opacity: 1
+            }
         };
-        this.chartSeries = data;
-
+        this.chartSeries = [
+            {
+                name: "banner",
+                data: []
+            },
+            {
+                name: "video",
+                data: []
+            }
+        ];
         this.loaded = true;
     }
 };
 </script>
 
 <style scoped>
-.media-tye-chart-panel {
+.media-type-chart-panel {
     height: 400px;
 }
 </style>

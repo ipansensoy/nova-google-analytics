@@ -20,14 +20,14 @@ class MediaTypeLoadedController extends Controller
             Period::days(30),
             'ga:users',
             [
-                'metrics' => 'ga:metric9',
-                'dimensions' => 'ga:hostname,ga:pagePath,ga:dimension1',
-                'sort' => '-ga:metric9',
+                'metrics' => 'ga:metric10,ga:metric11',
+                'dimensions' => 'ga:hostname',
+                'sort' => '-ga:metric10',
                 'max-results' => 10,
             ]
         );
 
-        $headers = ['hostname', 'path', 'bidWon', 'count'];
+        $headers = ['hostname', 'video_count', 'banner_count'];
 
         return array_map(
             function ($row) use ($headers) {
