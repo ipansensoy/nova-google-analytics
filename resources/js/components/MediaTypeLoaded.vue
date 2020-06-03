@@ -1,6 +1,7 @@
 <template>
     <card class="px-4 py-4 media-tye-chart-panel">
-        <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart>
+        <p>{{ chartSeries }}</p>
+        <!-- <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart> -->
     </card>
 </template>
 
@@ -18,7 +19,6 @@ export default {
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/mediatype-loaded");
         let data = await resp.json();
-        console.log(data);
         // let results = {};
         // for (var i = 0; i < data.length; i++) {
         //     results[data[i].hostname] = parseInt(data[i].count);
@@ -56,18 +56,7 @@ export default {
             ],
             labels: []
         };
-        this.chartSeries = [
-            {
-                name: "Tag Load Count",
-                type: "column",
-                data: []
-            },
-            {
-                name: "Experience Load Count",
-                type: "line",
-                data: []
-            }
-        ];
+        this.chartSeries = data;
 
         this.loaded = true;
     }

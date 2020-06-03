@@ -20,4 +20,4 @@ use Tightenco\NovaGoogleAnalytics\Http\Controllers\TagLoadedController;
 Route::get('most-visited-pages', MostVisitedPagesController::class);
 Route::get('referrer-list', ReferrerListController::class);
 Route::get('tag-loaded', TagLoadedController::class);
-Route::get('mediatype-loaded', MediaTypeLoadedController::class);
+Route::get('media-type-loaded', MediaTypeLoadedController::class);
