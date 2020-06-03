@@ -1,8 +1,8 @@
 <template>
-    <card class="px-4 py-4 pie-char-panel">
+    <card class="px-4 py-4 bar-char-panel">
         <h2>Tag load count this week</h2>
         <br />
-        <apexchart v-if="loaded" width="500" type="bar" :options="chartOptions" :series="chartSeries"></apexchart>
+        <apexchart v-if="loaded" height="350" type="line" :options="chartOptions" :series="chartSeries"></apexchart>
     </card>
 </template>
 
@@ -20,30 +20,58 @@ export default {
     async created() {
         let resp = await fetch("/nova-vendor/nova-google-analytics/tag-loaded");
         let data = await resp.json();
-
-        let results = {};
-        for (var i = 0; i < data.length; i++) {
-            results[data[i].hostname] = parseInt(data[i].count);
-        }
+        // let results = {};
+        // for (var i = 0; i < data.length; i++) {
+        //     results[data[i].hostname] = parseInt(data[i].count);
+        // }
         this.chartOptions = {
-            plotOptions: {
-                bar: {
-                    horizontal: true
-                }
+            chart: {
+                height: 350,
+                type: "line"
+            },
+            stroke: {
+                width: [0, 4]
+            },
+            title: {
+                text: "Traffic Sources"
             },
             dataLabels: {
-                enabled: false
+                enabled: true,
+                enabledOnSeries: [1]
             },
             xaxis: {
-                categories: []
+                type: "hostname"
             },
+            yaxis: [
+                {
+                    title: {
+                        text: "Tag Load Count"
+                    }
+                },
+                {
+                    opposite: true,
+                    title: {
+                        text: "Experience Load Count"
+                    }
+                }
+            ],
             labels: []
         };
-        this.catSeries = [];
-        for (let result in results) {
-            this.chartOptions.labels.push(result);
-            this.chartOptions.xaxis.categories.push(result[0]);
-            this.chartSeries.push(results[result]);
+        this.chartSeries = [
+            {
+                name: "Tag Load Count",
+                type: "column",
+                data: []
+            },
+            {
+                name: "Experience Load Count",
+                type: "line",
+                data: []
+            }
+        ];
+        for (let i = 0; i < data.length; i++) {
+            this.chartOptions.xaxis.categories.push(data[i].hostname);
+            this.chartSeries[0].data.push(parseInt(data[i].count));
         }
         this.loaded = true;
     }
@@ -51,7 +79,7 @@ export default {
 </script>
 
 <style scoped>
-.pie-char-panel {
-    height: 350px;
+.bar-char-panel {
+    height: 400px;
 }
 </style>
