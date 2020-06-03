@@ -20,7 +20,7 @@ class TagLoadedController extends Controller
             Period::days(7),
             'ga:users',
             [
-                'metrics' => 'ga:metric1', 'ga:metric2',
+                'metrics' => 'ga:metric1,ga:metric2',
                 'dimensions' => 'ga:hostname',
                 'sort' => '-ga:metric1',
                 'max-results' => 10,
