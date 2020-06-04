@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { chain, groupBy, map, value } from "lodash";
+
 export default {
     name: "App",
     props: ["card"],
@@ -28,6 +30,9 @@ export default {
             },
             dataLabels: {
                 enabled: false
+            },
+            title: {
+                text: "Bidder request count this week"
             },
             stroke: {
                 show: true,
@@ -63,19 +68,28 @@ export default {
                 data: []
             }
         ];
-        for (let i = 0; i < data.length; i++) {
-            this.chartOptions.xaxis.categories.push(data[i].hostname);
-            switch (data[i].label) {
-                case "pubmatic":
-                    this.chartSeries[2].data.push(parseInt(data[i].total));
-                    break;
-                case "appnnexus":
-                    this.chartSeries[1].data.push(parseInt(data[i].total));
-                    break;
-                case "rubicon":
-                    this.chartSeries[0].data.push(parseInt(data[i].total));
-                    break;
-            }
+        const resolveGroupings = chain(data)
+            .groupBy("hostname")
+            .map((value, key) => ({ hostname: key, data: value }))
+            .value();
+        const results = [];
+        const restructured = groupedByHostname => {
+            let builder = {};
+            builder.hostname = groupedByHostname.hostname;
+            groupedByHostname.data.forEach(data => {
+                builder[data.label] = data["total"];
+            });
+            return builder;
+        };
+
+        resolveGroupings.forEach(groupedByHostname => {
+            results.push(restructured(groupedByHostname));
+        });
+        for (let i = 0; i < results.length; i++) {
+            this.chartOptions.xaxis.categories.push(results[i].hostname);
+            this.chartSeries[1].data.push(parseInt(results[i].appnexus));
+            this.chartSeries[0].data.push(parseInt(results[i].rubicon));
+            this.chartSeries[2].data.push(parseInt(results[i].pubmatic));
         }
         this.loaded = true;
     }

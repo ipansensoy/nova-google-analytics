@@ -18,6 +18,7 @@
     "dependencies": {
         "animated-scroll-to": "^1.2.2",
         "apexcharts": "^3.19.2",
+        "lodash": "^4.17.15",
         "vue": "^2.5.0",
         "vue-apexcharts": "^1.5.3"
     }
