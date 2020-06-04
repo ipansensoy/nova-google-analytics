@@ -16,7 +16,7 @@ export default {
         };
     },
     async created() {
-        let resp = await fetch("/nova-vendor/nova-google-analytics/media-type-loaded");
+        let resp = await fetch("/nova-vendor/nova-google-analytics/prebid-request");
         let data = await resp.json();
         this.chartOptions = {
             chart: {

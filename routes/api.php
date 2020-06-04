@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Tightenco\NovaGoogleAnalytics\Http\Controllers\MediaTypeLoadedController;
 use Tightenco\NovaGoogleAnalytics\Http\Controllers\MostVisitedPagesController;
+use Tightenco\NovaGoogleAnalytics\Http\Controllers\PrebidRequestController;
 use Tightenco\NovaGoogleAnalytics\Http\Controllers\ReferrerListController;
 use Tightenco\NovaGoogleAnalytics\Http\Controllers\TagLoadedController;
-use Tightenco\NovaGoogleAnalytics\Http\Controllers\PrebidRequestController;
+
 /*
 |--------------------------------------------------------------------------
 | Tool API Routes
@@ -21,4 +22,4 @@ Route::get('most-visited-pages', MostVisitedPagesController::class);
 Route::get('referrer-list', ReferrerListController::class);
 Route::get('tag-loaded', TagLoadedController::class);
 Route::get('media-type-loaded', MediaTypeLoadedController::class);
-Route::get('prebid-request', PrebidRequest::class);
+Route::get('prebid-request', PrebidRequestController::class);

@@ -17,7 +17,7 @@ class PrebidRequest extends Controller
     {
 
         $analyticsData = app(Analytics::class)->performQuery(
-            Period::days(30),
+            Period::days(7),
             'ga:users',
             [
                 'metrics' => 'ga:metric10,ga:metric11',
