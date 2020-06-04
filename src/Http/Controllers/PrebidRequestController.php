@@ -6,7 +6,7 @@ use Illuminate\Routing\Controller;
 use Spatie\Analytics\Analytics;
 use Spatie\Analytics\Period;
 
-class PrebidRequest extends Controller
+class PrebidRequestController extends Controller
 {
     public function __invoke()
     {
