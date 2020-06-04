@@ -23,7 +23,7 @@ class PrebidRequestController extends Controller
                 'metrics' => 'ga:totalEvents,ga:eventValue,ga:avgEventValue',
                 'dimensions' => 'ga:hostname,ga:eventCategory,ga:eventAction,ga:eventLabel',
                 'sort' => '-ga:hostname,-ga:eventCategory,-ga:eventAction,-ga:eventLabel',
-                'filter' => 'ga:eventCategory=~^Prebid.js;ga:eventAction=~Request',
+                'filters' => 'ga:eventCategory=~^Prebid.js;ga:eventAction=~Request',
                 'max-results' => 10,
             ]
         );
