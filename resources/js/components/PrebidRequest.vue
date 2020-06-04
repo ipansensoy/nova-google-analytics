@@ -19,48 +19,63 @@ export default {
         let resp = await fetch("/nova-vendor/nova-google-analytics/prebid-request");
         let data = await resp.json();
         this.chartOptions = {
-            chart: {
-                height: 350,
-                stacked: true,
-                toolbar: {
-                    show: true
-                }
-            },
-            title: {
-                text: "Media type loaded on site this month"
-            },
-
             plotOptions: {
                 bar: {
-                    horizontal: false
+                    horizontal: false,
+                    columnWidth: "55%",
+                    endingShape: "rounded"
                 }
             },
-
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ["transparent"]
+            },
             xaxis: {
                 categories: []
             },
-            legend: {
-                position: "right",
-                offsetY: 40
-            },
+            yaxis: {},
             fill: {
                 opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val;
+                    }
+                }
             }
         };
         this.chartSeries = [
             {
-                name: "banner",
+                name: "rubicon",
                 data: []
             },
             {
-                name: "video",
+                name: "appnnexus",
+                data: []
+            },
+            {
+                name: "pubmatic",
                 data: []
             }
         ];
         for (let i = 0; i < data.length; i++) {
             this.chartOptions.xaxis.categories.push(data[i].hostname);
-            this.chartSeries[0].data.push(parseInt(data[i].banner_count));
-            this.chartSeries[1].data.push(parseInt(data[i].video_count));
+            switch (data[i].label) {
+                case "pubmatic":
+                    this.chartSeries[2].data.push(parseInt(data[i].total));
+                    break;
+                case "appnnexus":
+                    this.chartSeries[1].data.push(parseInt(data[i].total));
+                    break;
+                case "rubicon":
+                    this.chartSeries[0].data.push(parseInt(data[i].total));
+                    break;
+            }
         }
         this.loaded = true;
     }
