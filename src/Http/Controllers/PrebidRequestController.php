@@ -24,7 +24,7 @@ class PrebidRequestController extends Controller
                 'dimensions' => 'ga:hostname,ga:eventCategory,ga:eventAction,ga:eventLabel',
                 'sort' => '-ga:hostname,-ga:eventCategory,-ga:eventAction,-ga:eventLabel',
                 'filters' => 'ga:eventCategory=~^Prebid.js;ga:eventAction=~Request',
-                'max-results' => 10,
+
             ]
         );
 

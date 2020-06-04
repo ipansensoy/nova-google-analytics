@@ -23,7 +23,6 @@ class MediaTypeLoadedController extends Controller
                 'metrics' => 'ga:metric10,ga:metric11',
                 'dimensions' => 'ga:hostname',
                 'sort' => '-ga:metric10',
-                'max-results' => 10,
             ]
         );
 
